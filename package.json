@@ -1,0 +1,39 @@
+{
+  "name": "pparser-syntax-highlighting",
+  "displayName": "PParser Syntax Highlighting",
+  "description": "Provides syntax highlighting for the PParser grammar language.",
+  "version": "1.0.0",
+  "publisher": "paul-passeron",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "pparser",
+        "aliases": [
+          "PParser",
+          "pparser"
+        ],
+        "extensions": [
+          ".ppars"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pparser",
+        "scopeName": "source.pparser",
+        "path": "./syntaxes/pparser.tmLanguage.json"
+      }
+    ]
+  },
+  "vsce": {
+    "dependencies": false,
+    "yarn": false
+  }
+}

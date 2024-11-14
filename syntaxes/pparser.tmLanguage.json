@@ -1,0 +1,66 @@
+{
+  "name": "PParser",
+  "scopeName": "source.pparser",
+  "fileTypes": [
+    "ppars"
+  ],
+  "patterns": [
+    {
+      "name": "comment.line.double-slash.pparser",
+      "match": "//.*$"
+    },
+    {
+      "name": "keyword.control.rule.pparser",
+      "match": "%[a-zA-Z_][a-zA-Z0-9_]*"
+    },
+    {
+      "name": "variable.parameter.pparser",
+      "match": "%\\{[0-9]+%\\}"
+    },
+    {
+      "name": "meta.embedded.block.c.pparser",
+      "begin": "(\\{|%\\})",
+      "end": "(\\}|%\\{)",
+      "patterns": [
+        {
+          "include": "source.c"
+        },
+        {
+          "name": "variable.parameter.pparser",
+          "match": "%\\{[0-9]+%\\}"
+        }
+      ]
+    },
+    {
+      "name": "constant.numeric.pparser",
+      "match": "\\b[0-9]+\\b"
+    },
+    {
+      "name": "entity.name.function.rule.pparser",
+      "match": "^[a-zA-Z_][a-zA-Z0-9_]*\\s*:"
+    },
+    {
+      "name": "keyword.operator.pipe.pparser",
+      "match": "\\|"
+    },
+    {
+      "name": "keyword.operator.arrow.pparser",
+      "match": "=>"
+    },
+    {
+      "name": "punctuation.section.braces.pparser",
+      "match": "[{}]"
+    },
+    {
+      "name": "string.quoted.single.pparser",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        {
+          "name": "constant.character.escape.pparser",
+          "match": "\\\\."
+        }
+      ]
+    }
+  ]
+}
